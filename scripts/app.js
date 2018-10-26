@@ -15,21 +15,25 @@
     document.getElementById("helloMessage").
     innerHTML = "Denied, world!";
   }
+  });
 
   function showMap(position) {
-    // Show a map centered at (position.coords.latitude, position.coords.longitude).
+  // Show a map centered at (position.coords.latitude, position.coords.longitude).
     document.getElementById("helloMessage").
     innerHTML = position.coords.latitude + ":" + position.coords.longitude;
   }
 
   navigator.geolocation.getCurrentPosition(showMap);
-  });
-
+  document.getElementById("helloMessage").
+    innerHTML = "cccc";
 
   // TODO add service worker code here
+  /*
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
              .register('./service-worker.js')
              .then(function() { console.log('Service Worker Registered'); });
   }
+  */
+
 }());
