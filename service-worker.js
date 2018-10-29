@@ -79,11 +79,20 @@ self.addEventListener('fetch', function(e) {
      * The app is asking for app shell files. In this scenario the app uses the
      * "Cache, falling back to the network" offline strategy:
      * https://jakearchibald.com/2014/offline-cookbook/#cache-falling-back-to-network
-     */
+     
     e.respondWith(
       caches.match(e.request).then(function(response) {
         return response || fetch(e.request);
       })
     );
+    */
+    // we use network-falling-back-to-cache during development, this help reflect the code modification instantly
+    e.respondWith(
+      fetch(event.request).catch(function() {
+        return caches.match(event.request);
+      })
+    );
+
+
   }
 });
