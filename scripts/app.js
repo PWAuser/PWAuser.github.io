@@ -4,6 +4,30 @@
   document.getElementById("helloMessage").
     innerHTML = "Hello, world!";
 
+  var socket = new WebSocket('ws://localhost:9001');
+
+  socket.onopen = function(event) {
+  
+    // Send an initial message
+    socket.send('I am the client and I\'m listening!');
+  
+    // Listen for messages
+    socket.onmessage = function(event) {
+      console.log('Client received a message',event);
+      var msg = event.data;
+      document.getElementById("SocketMessage").innerHTML = msg;
+    };
+  
+    // Listen for socket closes
+    socket.onclose = function(event) {
+      console.log('Client notified socket has closed',event);
+    };
+  
+    // To close the socket....
+    //socket.close()
+  
+  };
+
   navigator.permissions.query({name:'geolocation'}).then(function(result) {
   if (result.state == 'granted') {
     document.getElementById("helloMessage").

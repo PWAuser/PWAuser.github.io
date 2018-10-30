@@ -88,8 +88,8 @@ self.addEventListener('fetch', function(e) {
     */
     // we use network-falling-back-to-cache during development, this help reflect the code modification instantly
     e.respondWith(
-      fetch(event.request).catch(function() {
-        return caches.match(event.request);
+      fetch(e.request).catch(function() {
+        return caches.match(e.request);
       })
     );
 
