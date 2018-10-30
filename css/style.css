@@ -1,0 +1,18 @@
+#messages {
+    height: 300px;
+    margin: 5px 0;
+    padding: 0 5px;
+    overflow: auto;
+    border: 1px dotted #777;
+    background-color: #fff;
+    line-height: 150%;
+}
+
+#messages pre {
+    width: 100%;
+    color: #000;
+}
+
+#messages pre.sent {
+    color: #f63;
+}

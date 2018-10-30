@@ -4,7 +4,7 @@
   document.getElementById("helloMessage").
     innerHTML = "Hello, world!";
 
-  var socket = new WebSocket('ws://localhost:9001');
+  var socket = new WebSocket('ws://localhost:13579');
 
   socket.onopen = function(event) {
   
