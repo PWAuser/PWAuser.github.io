@@ -30,20 +30,20 @@
 
   navigator.permissions.query({name:'geolocation'}).then(function(result) {
   if (result.state == 'granted') {
-    document.getElementById("helloMessage").
-    innerHTML = "granted, world!";
+    document.getElementById("permission_state").
+    innerHTML = "granted!";
   } else if (result.state == 'prompt') {
-    document.getElementById("helloMessage").
-    innerHTML = "prompt, world!";
+    document.getElementById("permission_state").
+    innerHTML = "prompt";
   } else {
-    document.getElementById("helloMessage").
-    innerHTML = "Denied, world!";
+    document.getElementById("permission_state").
+    innerHTML = "Denied";
   }
   });
 
   function showMap(position) {
   // Show a map centered at (position.coords.latitude, position.coords.longitude).
-    document.getElementById("helloMessage").
+    document.getElementById("user_location").
     innerHTML = position.coords.latitude + ":" + position.coords.longitude;
   }
 
