@@ -21,7 +21,6 @@
       console.log('start_btn clicked');
       WS.send('opc');
       navigator.geolocation.getCurrentPosition(showMap);
-      WS.send('cpc');
   });
   /*
   var socket = new WebSocket('ws://localhost:13579');
@@ -63,6 +62,7 @@
 
   function showMap(position) {
   // Show a map centered at (position.coords.latitude, position.coords.longitude).
+    WS.send('cpc')
     document.getElementById("user_location").
     innerHTML = position.coords.latitude + ":" + position.coords.longitude;
   }
