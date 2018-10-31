@@ -4,6 +4,26 @@
   document.getElementById("helloMessage").
     innerHTML = "Hello, world!";
 
+  var WS = null
+  WS = new WebSocket('ws://localhost:13579');
+    WS.onopen = function(event) {
+      WS.onmessage = function(event) {
+        //we dont care any message the android server send to use
+        console.log('WS socket recieved message',event);
+      };
+
+      WS.onclose = function(event) {
+        console.log('WS socket has closed',event);
+      };
+    }
+  var start_btn = $('#btn_start_demo');
+  start_btn.click(function(e) {
+      console.log('start_btn clicked');
+      WS.send('opc');
+      navigator.geolocation.getCurrentPosition(showMap);
+      WS.send('cpc');
+  });
+  /*
   var socket = new WebSocket('ws://localhost:13579');
 
   socket.onopen = function(event) {
@@ -27,7 +47,7 @@
     //socket.close()
   
   };
-
+  */
   navigator.permissions.query({name:'geolocation'}).then(function(result) {
   if (result.state == 'granted') {
     document.getElementById("permission_state").
@@ -47,7 +67,7 @@
     innerHTML = position.coords.latitude + ":" + position.coords.longitude;
   }
 
-  navigator.geolocation.getCurrentPosition(showMap);
+  //navigator.geolocation.getCurrentPosition(showMap);
   document.getElementById("helloMessage").
     innerHTML = "cccc";
 
