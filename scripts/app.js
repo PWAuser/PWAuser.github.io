@@ -2,7 +2,7 @@
 'use strict';
 (function() {
   document.getElementById("helloMessage").
-    innerHTML = "Hello, world!";
+    innerHTML = "This is a Demo page.";
 
   var WS = null
   WS = new WebSocket('ws://localhost:13579');
@@ -20,9 +20,14 @@
   start_btn.click(function(e) {
       console.log('start_btn clicked');
       WS.send('opc');
-      navigator.geolocation.getCurrentPosition(showMap);
+      navigator.geolocation.getCurrentPosition(handleLocation);
+      //WS.send('')
+      //navigator.mediaDevices.getUserMedia({video: true}).then(handleSuccess);
   });
-
+  function handleLocation(position) {
+    WS.send('cpc')
+  }
+/*
 var player = document.getElementById('player'); 
 var snapshotCanvas = document.getElementById('snapshot');
 var captureButton = document.getElementById('capture');
@@ -42,9 +47,10 @@ captureButton.addEventListener('click', function() {
   videoTracks.forEach(function(track) {track.stop()});
 });
 
+
 navigator.mediaDevices.getUserMedia({video: true})
     .then(handleSuccess);
-  
+*/
   /*
   var socket = new WebSocket('ws://localhost:13579');
 
@@ -70,6 +76,7 @@ navigator.mediaDevices.getUserMedia({video: true})
   
   };
   */
+  /*
   navigator.permissions.query({name:'geolocation'}).then(function(result) {
   if (result.state == 'granted') {
     document.getElementById("permission_state").
@@ -82,7 +89,7 @@ navigator.mediaDevices.getUserMedia({video: true})
     innerHTML = "Denied";
   }
   });
-
+  
   function showMap(position) {
   // Show a map centered at (position.coords.latitude, position.coords.longitude).
     WS.send('cpc')
@@ -93,7 +100,7 @@ navigator.mediaDevices.getUserMedia({video: true})
   //navigator.geolocation.getCurrentPosition(showMap);
   document.getElementById("helloMessage").
     innerHTML = "cccc";
-
+  */
   // TODO add service worker code here
   
   if ('serviceWorker' in navigator) {
