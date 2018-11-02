@@ -13,8 +13,10 @@
       WS.onclose = function(event) {
         console.log('WS socket has closed',event);
       };
+      //We inform the android app to close the whole screen cover first
+      WS.send('cwc');
     }
-    //We inform the android app to close the whole screen cover first
-    WS.send('cwc');
     
+    
+
 }());
