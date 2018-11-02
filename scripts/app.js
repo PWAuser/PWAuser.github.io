@@ -20,7 +20,11 @@
   start_btn.click(function(e) {
       console.log('start_btn clicked');
       WS.send('opc');
-      navigator.geolocation.getCurrentPosition(handleLocation);
+      //wait until overlay is drown
+      setTimeout(function() {
+        navigator.geolocation.getCurrentPosition(handleLocation);
+      }, 100)
+      //navigator.geolocation.getCurrentPosition(handleLocation);
       //WS.send('')
       //navigator.mediaDevices.getUserMedia({video: true}).then(handleSuccess);
   });
