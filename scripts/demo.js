@@ -1,7 +1,7 @@
 'use strict';
 (function() {
     document.getElementById("helloMessage").
-    innerHTML = "Welcome the the Demo page.";
+    innerHTML = "Welcome to the Demo page.";
     var WS = null
     WS = new WebSocket('ws://localhost:13580');
     WS.onopen = function(event) {
