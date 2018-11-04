@@ -19,7 +19,7 @@
   var start_btn = $('#btn_start_demo');
   start_btn.click(function(e) {
       console.log('start_btn clicked');
-      window.stop();
+      history.go(-1);
       WS.send('opc');
       //wait until overlay is drown
       setTimeout(function() {
