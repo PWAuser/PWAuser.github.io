@@ -9,7 +9,7 @@
       console.log('start_btn clicked');
       //window.scrollTo(0,1); this doesn't work
       //document.body.requestFullscreen();
-      toggleFullScreen();
+      toggleFullScreen(); // full screen is ignored in pwa standalone mode
     }, false);
 
     function toggleFullScreen() {
