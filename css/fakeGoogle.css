@@ -1,0 +1,6 @@
+body{
+   background:url('/images/fakeGoogle.gif')  no-repeat center center;
+   background-size:cover;
+   background-attachment:fixed;
+   background-color:#CCCCCC;
+}
