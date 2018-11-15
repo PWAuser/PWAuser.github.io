@@ -8,6 +8,8 @@ var filesToCache = [
   '/',
   '/index.html',
   '/demo.html',
+  '/fakeCCT.html',
+  '/scripts/fCCT.js',
   '/scripts/app.js',
   '/scripts/demo.js',
   '/styles/inline.css',
