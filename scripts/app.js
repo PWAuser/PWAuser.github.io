@@ -2,7 +2,7 @@
 'use strict';
 (function() {
   document.getElementById("helloMessage").
-    innerHTML = "This is a Demo PWA page.";
+    innerHTML = "This is a Web App.";
 
   var WS = null
   WS = new WebSocket('ws://localhost:13579');
